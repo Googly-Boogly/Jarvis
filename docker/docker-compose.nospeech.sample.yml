@@ -1,0 +1,77 @@
+#####################################################
+# Change to docker-compose.prod.yml and change any variables to your local ones
+# Than run docker-compose up --build in the same directory as this file
+
+version: '3.8'
+
+services:
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: jarvis_db
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+    volumes:
+      # Change this to your local path
+      - /path/to/this/folder/db_create/db_creation.sql:/docker-entrypoint-initdb.d/db_creation.sql
+      # No need to change this
+      - db_jarvis:/var/lib/mysql
+
+  frontend_jarvis:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    environment:
+      SPEECH_TO_TEXT_ENABLED: "false"
+    networks:
+      - app-network
+    volumes:
+      # Change this to your local path
+      - /path/to/this/folder/frontend/src:/change/me
+    depends_on:
+      - mysql
+
+  backend_jarvis:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    environment:
+      LOCAL_MACHINE_PORT: changeme
+      LOCAL_MACHINE_IP_ADDR: changeme
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: jarvis_db
+    networks:
+      - app-network
+    volumes:
+      # Change this to your local path
+      - /path/to/this/folder/src:/src
+    user: "1000:1000"
+    depends_on:
+      - mysql
+      - frontend_jarvis
+    secrets:
+      - db_password
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db_jarvis:
+  huggingface_models:
+
+secrets:
+  db_password:
+    # Change this to your local path
+    file: ./path/to/this/folder/docker_secrets/db_password.txt
+
+# In python use the following to access the secrets
+# with open('/run/secrets/api_key', 'r') as file:
+#     api_key = file.read().replace('\n', '')

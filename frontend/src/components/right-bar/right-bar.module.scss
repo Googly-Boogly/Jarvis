@@ -1,0 +1,47 @@
+.root {
+    display: grid;
+    grid-auto-flow: row;
+    padding: 5px;
+    border: 1px solid var(--accent-color2);
+    border-top: 0px solid var(--accent-color2);
+    border-right: 0px solid var(--accent-color2);
+    border-bottom: 0px solid var(--accent-color2);
+    width: 175px;
+    justify-items: start;
+    align-items: start;
+    align-content: start;
+    justify-content: center;
+    background-color: var(--darker-secondary-color);
+}
+
+.rightbarh {
+    color: var(--accent-color2);
+    font-size: 15px;
+    text-align: start;
+}
+
+.selectorcls {
+    font-size: 15px;
+    color: var(--black);
+    line-height: 1.0;
+    font-weight: 900;
+    border-radius: 90px;
+    outline: var(--accent-color);
+    background-color: var(--accent-color2);
+    box-shadow: 2.05px 2.19px var(--accent-color);
+    cursor: context-menu;
+    padding: 2px;
+}
+
+.dividerCls {
+    border: 1px solid var(--accent-color2);
+    border-left: 0px solid var(--accent-color2);
+    border-right: 0px solid var(--accent-color2);
+    padding: 5px;
+    height: 150px;
+}
+
+.botRandom {
+    margin-bottom: 10px;
+    text-align: start;
+}

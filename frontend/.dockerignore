@@ -1,0 +1,8 @@
+.venv
+frontend/src/.env.sample
+
+src/config.example.yaml
+
+.node_modules
+node_modules
+.frontend/node_modules

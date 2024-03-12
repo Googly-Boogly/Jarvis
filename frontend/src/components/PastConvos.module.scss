@@ -1,0 +1,55 @@
+.PastConversationDivWidg {
+    color: var(--secondary_color);
+    display: grid;
+    overflow: scroll;
+    height: 60px;
+    padding: 0px;
+    border: 1px solid white;
+    border-top: 0px solid white;
+    border-left: 0px solid white;
+    border-right: 0px solid white;
+    cursor: pointer;
+    font-family: var(--global_text_font);
+    font-size: 15px;
+    align-content: center;
+    justify-content: start;
+    background-color: var(--darker-secondary-color);
+    text-align: start;
+}
+
+.MainContainerDivPastConvos {
+    height: auto;
+    width: 150px;
+    max-height: 800px;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    font-family: Comic Sans MS, cursive;
+    font-style: italic;
+    font-size: 15px;
+    overflow: scroll;
+    background-color: var(--darker-secondary-color);
+    grid-auto-flow: row;
+    justify-items: stretch;
+    align-items: stretch;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    line-height: 1.0;
+    border: 0px solid var(--accent-color2);
+    border-right: 1px solid var(--accent-color2);
+}
+
+.agents {
+    color: var(--accent-color);
+    font-size: 20px;
+}
+
+.NewChat {
+    border: 1px solid var(--accent-color2);
+    box-shadow: 2.12px 2.12px var(--primary-color);
+    cursor: pointer;
+    font-size: 20px;
+    font-family: var(--global_text_font);
+    font-weight: 900;
+    margin-bottom: 20px;
+}

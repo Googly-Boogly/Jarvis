@@ -1,0 +1,66 @@
+# This program is built to run in a docker so file paths should not change
+
+# Change these
+OPENAI:
+  API_KEY: "changeme"
+
+
+OPEN_WEATHER_MAP_API_KEY: "changeme"
+# End Change these
+
+# TODO, NOT IMPLEMENTED
+
+WYZE:
+  WYZE_EMAIL: "changeme"
+  WYZE_PASSWORD: "changeme"
+  WYZE_KEY: "changeme"
+  WYZE_API_KEY: "changeme"
+
+DEEPGRAM_API_KEY: "changeme"
+
+EDEN_AI_API_KEY: "changeme"
+
+ANTHROPIC_API_KEY: "changeme"
+
+GOOGLE:
+  TOKEN_FILE_PATH: "/src/secrets2/token.json"
+  YOUR_CLIENT_SECRETS_FILE: "/src/secrets2/google_oauth_2_details.json"
+  CREATE_CALENDAR_ID_GOOGLE: "changeme"
+  GOOGLE_MAPS_API_KEY: "changeme"
+  SCOPES:
+    - "https://www.googleapis.com/auth/calendar"
+    - "https://www.googleapis.com/auth/calendar.events"
+    - "https://www.googleapis.com/auth/calendar.readonly"
+    - "https://www.googleapis.com/auth/calendar.settings.readonly"
+    - "https://www.googleapis.com/auth/calendar.addons.execute"
+    - "https://www.googleapis.com/auth/calendar.addons.current.action.compose"
+    - "https://www.googleapis.com/auth/calendar.addons.current.action.read"
+    - "https://www.googleapis.com/auth/calendar.addons.current.action.write"
+    - "https://www.googleapis.com/auth/calendar.addons.current.event.read"
+    - "https://www.googleapis.com/auth/calendar.addons.current.event.write"
+    - "https://www.googleapis.com/auth/calendar.addons.current.message.read"
+    - "https://www.googleapis.com/auth/calendar.addons.current.message.write"
+    - "https://www.googleapis.com/auth/calendar.addons.current.query.read"
+    - "https://www.googleapis.com/auth/calendar.addons.current.query.write"
+    - "https://www.googleapis.com/auth/calendar.addons.current.settings.read"
+    - "https://www.googleapis.com/auth/calendar.addons.current.settings.write"
+    - "https://www.googleapis.com/auth/calendar.addons.current.state.read"
+    - "https://www.googleapis.com/auth/calendar.addons.current.state.write"
+    - "https://www.googleapis.com/auth/calendar.addons.current.view.read"
+    - "https://www.googleapis.com/auth/calendar.addons.current.view.write"
+    - "https://www.googleapis.com/auth/calendar.addons.current.write"
+    - "https://www.googleapis.com/auth/calendar.addons.execute"
+    - "https://www.googleapis.com/auth/calendar.addons.install"
+    - "https://www.googleapis.com/auth/calendar.addons.install.readonly"
+    - "https://www.googleapis.com/auth/calendar.addons.install.write"
+    - "https://www.googleapis.com/auth/calendar.addons.readonly"
+    - "https://www.googleapis.com/auth/calendar.addons.write"
+    - "https://www.googleapis.com/auth/calendar.readonly"
+    - "https://www.googleapis.com/auth/calendar.settings.readonly"
+    - "https://www.googleapis.com/auth/calendar.settings.write"
+    - "https://www.googleapis.com/auth/calendar.write"
+    - "https://www.googleapis.com/auth/cloud-platform"
+    - "https://www.googleapis.com/auth/cloud-platform.read-only"
+    - "https://www.googleapis.com/auth/cloud-platform.read-write"
+    - "https://www.googleapis.com/auth/gmail.readonly"
+    - "https://www.googleapis.com/auth/gmail.modify"
