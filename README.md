@@ -26,7 +26,7 @@ Before starting, ensure you have Docker installed on your system. Docker is esse
     Clone the repository to your local machine to get started:
 
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/Googly-Boogly/Jarvis
     ```
 
 2. **Configure the Application**

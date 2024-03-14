@@ -47,8 +47,8 @@ class AudioConsumer(AsyncWebsocketConsumer):
 class SpeechToTextConsumer(AsyncWebsocketConsumer):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.vad = webrtcvad.Vad(1)  # VAD with moderate aggressiveness
-        self.model = Model("/path/to/your/vosk-model-directory")  # Path to the Vosk model directory
+        # self.vad = webrtcvad.Vad(1)  # VAD with moderate aggressiveness
+        # self.model = Model("/path/to/your/vosk-model-directory")  # Path to the Vosk model directory
         self.audio_buffer: Deque[bytes] = deque(maxlen=50)  # Buffer to hold audio frames
 
     async def connect(self):
@@ -59,22 +59,23 @@ class SpeechToTextConsumer(AsyncWebsocketConsumer):
 
     async def receive(self, text_data: str = None, bytes_data: bytes = None):
         if bytes_data:
-            loop = asyncio.get_running_loop()
-
-            # Add the incoming audio data to the buffer
-            self.audio_buffer.append(bytes_data)
-
-            # Check for voice activity
-            is_speech = await loop.run_in_executor(None, self.check_vad, bytes_data)
-            if is_speech:
-                # Convert buffer to bytes for wake word detection
-                buffered_audio = b''.join(self.audio_buffer)
-                has_wake_word = await loop.run_in_executor(None, self.detect_wake_word, buffered_audio)
-
-                if has_wake_word:
-                    # Clear the buffer after wake word detection or initiate further action
-                    self.audio_buffer.clear()
-                    await self.send(text_data=json.dumps({'message': 'Wake word detected. Start speaking now...'}))
+            pass
+            # loop = asyncio.get_running_loop()
+            #
+            # # Add the incoming audio data to the buffer
+            # self.audio_buffer.append(bytes_data)
+            #
+            # # Check for voice activity
+            # is_speech = await loop.run_in_executor(None, self.check_vad, bytes_data)
+            # if is_speech:
+            #     # Convert buffer to bytes for wake word detection
+            #     buffered_audio = b''.join(self.audio_buffer)
+            #     has_wake_word = await loop.run_in_executor(None, self.detect_wake_word, buffered_audio)
+            #
+            #     if has_wake_word:
+            #         # Clear the buffer after wake word detection or initiate further action
+            #         self.audio_buffer.clear()
+            #         await self.send(text_data=json.dumps({'message': 'Wake word detected. Start speaking now...'}))
 
         elif text_data:
             # Handle text data if needed
